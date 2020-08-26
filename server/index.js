@@ -52,6 +52,19 @@ app.put('/hostles/:id/api/reviews', (req, res) => {
   });
 });
 
+app.delete('/hostles/:id/api/reviews', (req, res) => {
+
+  const queryStr =`DELETE FROM reviews WHERE reviews.id = ${req.body.reviewId};`;
+  db.connection.query(queryStr, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log('done');
+      res.json(response);
+    }
+  });
+});
 
 
 app.listen(3001, () => console.log('listening on 3001'));
