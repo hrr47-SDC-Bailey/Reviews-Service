@@ -30,11 +30,11 @@ npm install -g webpack
 npm install
 ```
 
-### API Calls
-All calls route to /hostles/:id/api/reviews
-GET - Retrieves reviews with their authors from the database for the current hostel
-POST - Adds a new review into the database for the current hostel
-PUT - Updates a review that is currently in the database if the request contains all of the review information
-DELETE - Deletes a review from the database if the request contains a review id number
+## API Calls
+### All calls route to /hostles/:id/api/reviews
+- GET - Retrieves reviews with their authors from the database for the current hostel
+- POST - Adds a new review into the database for the current hostel
+- PUT - Updates a review that is currently in the database if the request contains all of the review information
+- DELETE - Deletes a review from the database if the request contains a review id number
 
 
