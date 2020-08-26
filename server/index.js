@@ -37,6 +37,21 @@ app.post('/hostles/:id/api/reviews', (req, res) => {
   });
 });
 
+app.put('/hostles/:id/api/reviews', (req, res) => {
+  const total = ((req.body.security + req.body.location + req.body.staff + req.body.atmosphere + req.body.cleanliness + req.body.facilities + req.body.value) / 7).toFixed(1);
+  const queryStr =`SELECT id INTO @last_author_id FROM authors WHERE authors.name = "${req.body.name}";
+  UPDATE reviews SET hostel_id = ${req.params.id}, author_id = @last_author_id, description = "${req.body.description}", security =  ${req.body.security}, location = ${req.body.location}, staff = ${req.body.staff}, atmosphere = ${req.body.atmosphere}, cleanliness = ${req.body.cleanliness}, facilities = ${req.body.facilities}, value = ${req.body.value}, total = ${total}, created_at = "${req.body.created_at}" WHERE reviews.id = ${req.body.reviewId};`;
+  db.connection.query(queryStr, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log('done');
+      res.json(response);
+    }
+  });
+});
+
 
 
 app.listen(3001, () => console.log('listening on 3001'));
