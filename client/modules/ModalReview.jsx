@@ -27,9 +27,9 @@ class ModalReview extends React.Component {
             <User width={40} height={40} style={{color: '#b9babb'}}/>
           </div>
           <ul className={style.authorlist}>
-            <li className={style.username}>{this.props.review.name}</li>
-            <li className={style.userdescription}>{this.props.review.gender}{', '}{this.props.review.age_group}</li>
-            <li className={style.userdescription}>{this.props.review.authdescription}</li>
+            <li className={style.username}>{this.props.review.user}</li>
+            <li className={style.userdescription}>{this.props.review.gender}{', '}{this.props.review.age}</li>
+            <li className={style.userdescription}>{this.props.review.description}</li>
           </ul>
         </div>
         <div>
@@ -43,7 +43,7 @@ class ModalReview extends React.Component {
               {this.state.date}
             </div>
           </div>
-            <div className={style.reviewdescription}>{this.props.review.description}</div>
+            <div className={style.reviewdescription}>{this.props.review.review}</div>
         </div>
       </div>
     )

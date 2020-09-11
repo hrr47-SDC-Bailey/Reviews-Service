@@ -14,7 +14,7 @@ class SingleReview extends React.Component {
   }
 
   componentDidMount() {
-    let date = moment(this.props.review.created_at).format('MMM D, YYYY');
+    let date = moment(this.props.review.date).format('MMM D, YYYY');
     this.setState({
       date: date,
       mounted: true
@@ -34,7 +34,7 @@ class SingleReview extends React.Component {
             </div>
           </div>
           <div className={style.reviewbody}>
-            {this.props.review.description}
+            {this.props.review.review}
           </div>
         </div>
       </div>

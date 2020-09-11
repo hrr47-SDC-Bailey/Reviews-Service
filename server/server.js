@@ -2,10 +2,13 @@ const express = require('express');
 const db = require('./database/db.js');
 const path = require('path');
 
+require('newrelic');
 const app = express();
+const port = process.env.PORT || 3000;
+
 
 app.use(express.json());
-app.use('/hostels/:hostel_id', express.static(path.join(__dirname, '../public')));
+app.use('/', express.static(path.join(__dirname, '../public')));
 
 
 app.get('/hostels/:id/api/reviews', (req, res) => {
@@ -68,4 +71,4 @@ app.get('/hostels/:id/api/reviews', (req, res) => {
 // });
 
 
-app.listen(3001, () => console.log('listening on 3001'));
+app.listen(port, () => console.log('listening on 3001'));
